@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="http://localhost:8080/WS_SOAP_EUREKABANK_JAVA_GR02/BancoWebServiceService?wsdl" uri="wsdl/localhost_8080/WS_SOAP_EUREKABANK_JAVA_GR02/BancoWebServiceService.wsdl"/>
+    <system systemId="http://localhost:8080/WS_SOAP_EUREKABANK_JAVA_GR02/BancoWebServiceService?xsd=1" uri="wsdl/localhost_8080/WS_SOAP_EUREKABANK_JAVA_GR02/BancoWebServiceService.xsd_1.xsd"/>
+    <system systemId="http://10.240.1.8:8080/WS_REST_EUREKABANK_JAVA_GR02/BancoWebServiceService?WSDL" uri="wsdl/10.240.1.8_8080/WS_REST_EUREKABANK_JAVA_GR02/BancoWebServiceService.wsdl"/>
+    <system systemId="http://10.240.1.8:8080/WS_REST_EUREKABANK_JAVA_GR02/BancoWebServiceService?xsd=1" uri="wsdl/10.240.1.8_8080/WS_REST_EUREKABANK_JAVA_GR02/BancoWebServiceService.xsd_1.xsd"/>
+</catalog>
