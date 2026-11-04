@@ -5,12 +5,13 @@
     <title>Depósito de Dinero - Monsters Inc</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/eureka-hud.css">
 </head>
 <body>
     <div class="panel-wrapper">
         <div class="deposito-panel">
             <div class="deposito-left">
-                <img src="images/sullivan.png" alt="Sullivan" class="deposito-img">
+                <img src="images/hud.jpg" alt="Sullivan" class="deposito-img">
             </div>
             <div class="deposito-right">
                 <h2 class="deposito-title">Depósito de Dinero</h2>

@@ -5,12 +5,13 @@
     <title>Retiro de Dinero - Monsters Inc</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/eureka-hud.css">
 </head>
 <body>
     <div class="panel-wrapper">
         <div class="retiro-panel">
             <div class="retiro-left">
-                <img src="images/sullivan.png" alt="Sullivan" class="retiro-img">
+                <img src="images/hud.jpg" alt="Sullivan" class="retiro-img">
             </div>
             <div class="retiro-right">
                 <h2 class="retiro-title">Retiro de Dinero</h2>

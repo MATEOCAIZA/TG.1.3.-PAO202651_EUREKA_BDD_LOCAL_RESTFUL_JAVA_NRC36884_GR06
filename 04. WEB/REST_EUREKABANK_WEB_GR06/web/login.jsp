@@ -6,12 +6,13 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/eureka-hud.css">
 </head>
 <body>
     <div class="login-wrapper">
         <div class="login-panel">
             <div class="login-left d-none d-md-flex">
-                <img src="images/sullivan.png" alt="Sullivan" class="login-img">
+                <img src="images/hud.jpg" alt="Sullivan" class="login-img">
             </div>
             <div class="login-right">
                 <h2 class="login-title">Bienvenido a Monsters Bank</h2>

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="240dp"
+            android:contentDescription="EurekaBank"
+            android:scaleType="centerCrop"
+            android:src="@drawable/hud" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="-36dp"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/panel"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <TextView
+                style="@style/Hud.Titulo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="▓▓ EUREKABANK ▓▓" />
+
+            <TextView
+                android:id="@+id/nodo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:fontFamily="monospace"
+                android:textColor="@color/orange"
+                android:textSize="12sp" />
+
+            <TextView style="@style/Hud.Etiqueta" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="SERVIDOR (IP:PUERTO)" />
+            <EditText
+                android:id="@+id/servidor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textUri" />
+
+            <TextView style="@style/Hud.Etiqueta" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="USUARIO" />
+            <EditText
+                android:id="@+id/usuario"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="MONSTER"
+                android:inputType="text" />
+
+            <TextView style="@style/Hud.Etiqueta" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="CLAVE" />
+            <EditText
+                android:id="@+id/clave"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword" />
+
+            <Button
+                android:id="@+id/ingresar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="» INGRESAR" />
+
+            <TextView
+                android:id="@+id/estado"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:fontFamily="monospace"
+                android:gravity="center"
+                android:textColor="@color/muted" />
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

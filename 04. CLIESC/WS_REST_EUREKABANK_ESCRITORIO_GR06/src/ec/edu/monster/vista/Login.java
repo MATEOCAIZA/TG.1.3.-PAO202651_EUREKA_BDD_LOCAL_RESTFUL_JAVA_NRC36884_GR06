@@ -104,6 +104,7 @@ public class Login extends JFrame {
     }
 
     public static void main(String[] args) {
+        HudTheme.install(); // tema común EurekaBank
         SwingUtilities.invokeLater(() -> new Login().setVisible(true));
     }
 }

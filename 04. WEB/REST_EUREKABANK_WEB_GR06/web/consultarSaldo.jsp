@@ -5,12 +5,13 @@
     <title>Consulta de Saldo - Monsters Inc</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/eureka-hud.css">
 </head>
 <body>
     <div class="panel-wrapper">
         <div class="saldo-panel">
             <div class="saldo-left">
-                <img src="images/sullivan.png" alt="Sullivan" class="saldo-mascot">
+                <img src="images/hud.jpg" alt="Sullivan" class="saldo-mascot">
             </div>
             <div class="saldo-right">
                 <h2 class="saldo-title">Consulta de Saldo</h2>

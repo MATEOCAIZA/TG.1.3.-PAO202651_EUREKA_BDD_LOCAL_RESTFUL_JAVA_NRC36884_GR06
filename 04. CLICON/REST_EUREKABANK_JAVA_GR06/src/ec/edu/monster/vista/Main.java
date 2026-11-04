@@ -13,79 +13,113 @@ import java.util.Scanner;
 
 public class Main {
 
+    private static final String NODO = "REST · JAVA";
+
+    // Tema común de consola (mismo en los 4 clientes). Colores ANSI solo en terminal real;
+    // en la salida de NetBeans (sin consola) se imprime sin códigos.
+    private static final boolean COLOR = System.console() != null;
+    private static final String MORADO = c("35"), VERDE = c("92"), NARANJA = c("33"), ROJO = c("91"), RESET = c("0");
+
+    private static String c(String code) { return COLOR ? "\u001B[" + code + "m" : ""; }
+
+    private static void banner() {
+        System.out.println(MORADO + "  ╔════════════════════════════════════════════════╗");
+        System.out.println("  ║ " + VERDE + " ▓▓ EUREKABANK ▓▓    TERMINAL DE OPERACIONES  " + MORADO + " ║");
+        System.out.println("  ║ " + NARANJA + String.format(" NODO: %-20s   ESTADO: EN LÍNEA", NODO) + MORADO + " ║");
+        System.out.println("  ╚════════════════════════════════════════════════╝" + RESET);
+    }
+
+    private static void titulo(String t) {
+        System.out.println();
+        System.out.println(VERDE + "  ▌ " + t.toUpperCase() + RESET);
+        System.out.println(MORADO + "  ──────────────────────────────────────────────────" + RESET);
+    }
+
+    private static void opcion(String n, String texto) { System.out.println("  " + NARANJA + "[" + n + "]" + RESET + " " + texto); }
+    private static void prompt(String p) { System.out.print("  " + NARANJA + "» " + RESET + p + ": "); }
+    private static void ok(String m) { System.out.println(VERDE + "  ■ " + m + RESET); }
+    private static void error(String m) { System.out.println(ROJO + "  ■ " + m + RESET); }
+
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in).useLocale(java.util.Locale.US); // importes con punto decimal en cualquier PC
         BancoClienteControlador controlador = new BancoClienteControlador();
 
-        System.out.println("=== LOGIN ===");
-        System.out.print("Usuario: ");
+        banner();
+        titulo("Acceso al sistema");
+        prompt("Usuario");
         String usuario = sc.nextLine();
-        System.out.print("Clave: ");
+        prompt("Clave");
         String clave = sc.nextLine();
 
         if (!controlador.login(usuario, clave)) {
-            System.out.println("Login incorrecto.");
+            error("Login incorrecto.");
             return;
         }
+        ok("Bienvenido, " + usuario);
 
         int opcion;
         do {
-            System.out.println("\n=== MENÚ BANCO ===");
-            System.out.println("1. Consultar saldo");
-            System.out.println("2. Realizar depósito");
-            System.out.println("3. Realizar retiro");
-            System.out.println("4. Realizar transferencia");
-            System.out.println("5. Consultar movimientos");
-            System.out.println("0. Salir");
-            System.out.print("Opción: ");
+            titulo("Menú principal");
+            opcion("1", "Consultar saldo");
+            opcion("2", "Realizar depósito");
+            opcion("3", "Realizar retiro");
+            opcion("4", "Realizar transferencia");
+            opcion("5", "Consultar movimientos");
+            opcion("0", "Salir");
+            prompt("Opción");
             opcion = sc.nextInt(); sc.nextLine();
 
             switch (opcion) {
                 case 1:
-                    System.out.print("Código de cuenta: ");
+                    titulo("Consultar saldo");
+                    prompt("Código de cuenta");
                     String cuenta1 = sc.nextLine();
                     double saldo = controlador.consultarSaldo(cuenta1);
-                    System.out.println("Saldo actual: $" + saldo);
+                    ok("Saldo actual: $" + saldo);
                     break;
                 case 2:
-                    System.out.print("Cuenta: ");
+                    titulo("Depósito");
+                    prompt("Cuenta");
                     String cuenta2 = sc.nextLine();
-                    System.out.print("Importe: ");
+                    prompt("Importe");
                     double importe2 = sc.nextDouble(); sc.nextLine();
                     boolean ok2 = controlador.realizarDeposito(cuenta2, importe2, "0004");
-                    System.out.println(ok2 ? "Depósito exitoso" : "Error en el depósito");
+                    if (ok2) ok("Depósito exitoso"); else error("Error en el depósito");
                     break;
                 case 3:
-                    System.out.print("Cuenta: ");
+                    titulo("Retiro");
+                    prompt("Cuenta");
                     String cuenta3 = sc.nextLine();
-                    System.out.print("Importe: ");
+                    prompt("Importe");
                     double importe3 = sc.nextDouble(); sc.nextLine();
                     boolean ok3 = controlador.realizarRetiro(cuenta3, importe3, "0004");
-                    System.out.println(ok3 ? "Retiro exitoso" : "Error en el retiro");
+                    if (ok3) ok("Retiro exitoso"); else error("Error en el retiro");
                     break;
                 case 4:
-                    System.out.print("Cuenta origen: ");
+                    titulo("Transferencia");
+                    prompt("Cuenta origen");
                     String origen = sc.nextLine();
-                    System.out.print("Cuenta destino: ");
+                    prompt("Cuenta destino");
                     String destino = sc.nextLine();
-                    System.out.print("Importe: ");
+                    prompt("Importe");
                     double importe4 = sc.nextDouble(); sc.nextLine();
-                    System.out.print("Empleado: ");
+                    prompt("Empleado");
                     String empleado = sc.nextLine();
                     boolean ok4 = controlador.realizarTransferencia(origen, destino, importe4, empleado);
-                    System.out.println(ok4 ? "Transferencia exitosa" : "Error en la transferencia");
+                    if (ok4) ok("Transferencia exitosa"); else error("Error en la transferencia");
                     break;
                 case 5:
-                    System.out.print("Cuenta: ");
+                    titulo("Movimientos");
+                    prompt("Cuenta");
                     String cuenta5 = sc.nextLine();
                     String movimientos = controlador.consultarMovimientos(cuenta5);
-                    System.out.println("Movimientos:\n" + movimientos);
+                    System.out.println(movimientos);
                     break;
                 case 0:
-                    System.out.println("Hasta luego.");
+                    ok("Hasta luego.");
                     break;
                 default:
-                    System.out.println("Opción inválida.");
+                    error("Opción inválida.");
                     break;
             }
         } while (opcion != 0);

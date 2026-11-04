@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Tema común EurekaBank (morado / verde neón / naranja), igual que web, escritorio y consola. -->
+<resources>
+    <color name="bg">#0B0812</color>
+    <color name="panel">#E6160E24</color>
+    <color name="input">#120B1F</color>
+    <color name="purple">#5C2D91</color>
+    <color name="purple2">#7A45B8</color>
+    <color name="green">#8FE34F</color>
+    <color name="green_dim">#3F6E22</color>
+    <color name="orange">#FF8C2E</color>
+    <color name="text">#ECE6F7</color>
+    <color name="muted">#A596C4</color>
+    <color name="danger">#FF5D6C</color>
+
+    <style name="Hud" parent="android:Theme.Material.NoActionBar">
+        <item name="android:windowBackground">@color/bg</item>
+        <item name="android:statusBarColor">@color/purple</item>
+        <item name="android:navigationBarColor">@color/bg</item>
+        <item name="android:colorAccent">@color/green</item>
+        <item name="android:colorPrimary">@color/purple</item>
+        <item name="android:textColor">@color/text</item>
+        <item name="android:textColorHint">@color/muted</item>
+        <item name="android:editTextStyle">@style/Hud.Input</item>
+        <item name="android:buttonStyle">@style/Hud.Button</item>
+    </style>
+
+    <style name="Hud.Input" parent="android:Widget.Material.EditText">
+        <item name="android:background">@drawable/input</item>
+        <item name="android:textColor">@color/green</item>
+        <item name="android:fontFamily">monospace</item>
+        <item name="android:padding">12dp</item>
+        <item name="android:layout_marginTop">10dp</item>
+        <item name="android:singleLine">true</item>
+    </style>
+
+    <style name="Hud.Button" parent="android:Widget.Material.Button">
+        <item name="android:background">@drawable/boton</item>
+        <item name="android:textColor">@color/text</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:letterSpacing">0.08</item>
+        <item name="android:stateListAnimator">@null</item>
+        <item name="android:minHeight">48dp</item>
+    </style>
+
+    <style name="Hud.Titulo">
+        <item name="android:textColor">@color/green</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:letterSpacing">0.1</item>
+        <item name="android:shadowColor">#808FE34F</item>
+        <item name="android:shadowRadius">10</item>
+    </style>
+
+    <style name="Hud.Etiqueta">
+        <item name="android:textColor">@color/muted</item>
+        <item name="android:textSize">13sp</item>
+        <item name="android:letterSpacing">0.05</item>
+        <item name="android:layout_marginTop">12dp</item>
+    </style>
+</resources>

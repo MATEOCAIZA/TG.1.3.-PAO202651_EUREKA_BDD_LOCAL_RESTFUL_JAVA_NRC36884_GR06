@@ -6,12 +6,13 @@
     <title>Consulta de Movimientos</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/eureka-hud.css">
 </head>
 <body>
     <div class="panel-wrapper">
         <div class="movimientos-panel">
             <div class="movimientos-left">
-                <img src="images/sullivan.png" alt="Sullivan" class="movimientos-img">
+                <img src="images/hud.jpg" alt="Sullivan" class="movimientos-img">
             </div>
             <div class="movimientos-right">
                 <h2 class="movimientos-title">Consulta de Movimientos</h2>

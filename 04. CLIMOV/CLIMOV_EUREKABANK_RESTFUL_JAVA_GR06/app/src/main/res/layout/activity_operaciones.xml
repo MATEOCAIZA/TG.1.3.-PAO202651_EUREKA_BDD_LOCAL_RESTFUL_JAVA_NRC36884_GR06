@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <!-- Cabecera morada con línea verde, como la barra de las webs -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/purple"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="12dp">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/Hud.Titulo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="EUREKABANK"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/nodo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="monospace"
+                android:textColor="@color/orange"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/salir"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="16dp"
+            android:text="SALIR" />
+    </LinearLayout>
+
+    <View android:layout_width="match_parent" android:layout_height="2dp" android:background="@color/green" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/panel"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView style="@style/Hud.Etiqueta" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="0dp" android:text="▌ CUENTA" />
+                <EditText
+                    android:id="@+id/cuenta"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="00100001"
+                    android:inputType="number" />
+
+                <TextView style="@style/Hud.Etiqueta" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="▌ IMPORTE (Ej. 250.00)" />
+                <EditText
+                    android:id="@+id/importe"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="0.00"
+                    android:inputType="numberDecimal" />
+
+                <TextView style="@style/Hud.Etiqueta" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="▌ CUENTA DESTINO (solo transferencia)" />
+                <EditText
+                    android:id="@+id/destino"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="00200001"
+                    android:inputType="number" />
+            </LinearLayout>
+
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="14dp">
+                <Button android:id="@+id/saldo" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginEnd="6dp" android:text="SALDO" />
+                <Button android:id="@+id/movimientos" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginStart="6dp" android:text="MOVIMIENTOS" />
+            </LinearLayout>
+
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="10dp">
+                <Button android:id="@+id/deposito" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginEnd="6dp" android:text="DEPÓSITO" />
+                <Button android:id="@+id/retiro" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginStart="6dp" android:text="RETIRO" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/transferencia"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="TRANSFERENCIA" />
+
+            <TextView style="@style/Hud.Etiqueta" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="18dp" android:text="▌ RESULTADO" />
+            <TextView
+                android:id="@+id/salida"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:background="@drawable/panel"
+                android:fontFamily="monospace"
+                android:minHeight="120dp"
+                android:padding="14dp"
+                android:textColor="@color/green"
+                android:textIsSelectable="true"
+                android:textSize="13sp" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
