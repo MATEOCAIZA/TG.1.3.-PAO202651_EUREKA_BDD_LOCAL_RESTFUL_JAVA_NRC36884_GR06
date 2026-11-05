@@ -9,8 +9,11 @@ import org.json.JSONObject;
 
 public class BancoClienteControlador {
 
+    // IP:puerto del servidor REST; se cambia con -Dservidor=IP:8080 al ejecutar
+    public static final String SERVIDOR = System.getProperty("servidor", "localhost:8080");
+
     private final String BASE_URL =
-            "http://localhost:8080/WS_EurekaBank/webresources/coreBancario";
+            "http://" + SERVIDOR + "/WS_EurekaBank/webresources/coreBancario";
 
     public boolean login(String usuario, String clave) {
 

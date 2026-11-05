@@ -17,7 +17,46 @@ public final class HudTheme {
             GREEN_DIM = new Color(0x3F6E22), ORANGE = new Color(0xFF8C2E), TEXT = new Color(0xECE6F7);
     private static final Font FONT = new Font("Segoe UI", Font.PLAIN, 14), MONO = new Font("Consolas", Font.PLAIN, 14);
 
+    /** "SOAP · JAVA" o "REST · JAVA" según la carpeta/jar del proyecto, para distinguirlos con los dos abiertos. */
+    public static final String NODO = nodo();
+
     private HudTheme() { }
+
+    private static String nodo() {
+        try {
+            String ruta = HudTheme.class.getProtectionDomain().getCodeSource().getLocation().toString();
+            return ruta.toUpperCase().contains("SOAP") ? "SOAP · JAVA" : "REST · JAVA";
+        } catch (Exception e) {
+            return "REST · JAVA";
+        }
+    }
+
+    // Prefijo en el título y distintivo naranja arriba a la derecha
+    private static void marcar(Window w) {
+        if (w instanceof Frame) {
+            Frame f = (Frame) w;
+            String t = f.getTitle() == null ? "" : f.getTitle();
+            if (!t.contains(NODO)) f.setTitle("[" + NODO + "] " + t);
+        } else if (w instanceof Dialog) {
+            Dialog d = (Dialog) w;
+            String t = d.getTitle() == null ? "" : d.getTitle();
+            if (!t.contains(NODO)) d.setTitle("[" + NODO + "] " + t);
+        }
+        if (!(w instanceof JFrame)) return;
+        JLayeredPane capa = ((JFrame) w).getLayeredPane();
+        JLabel marca = new JLabel("■ " + NODO);
+        marca.putClientProperty("hud", Boolean.TRUE); // que style no lo repinte
+        marca.setOpaque(true); marca.setBackground(INPUT); marca.setForeground(ORANGE);
+        marca.setFont(MONO.deriveFont(Font.BOLD, 13f));
+        marca.setBorder(new CompoundBorder(new LineBorder(ORANGE, 1), new EmptyBorder(2, 6, 2, 6)));
+        marca.setSize(marca.getPreferredSize());
+        capa.add(marca, JLayeredPane.PALETTE_LAYER);
+        Runnable ubicar = () -> marca.setLocation(capa.getWidth() - marca.getWidth() - 8, 6);
+        ubicar.run();
+        capa.addComponentListener(new ComponentAdapter() {
+            @Override public void componentResized(ComponentEvent e) { ubicar.run(); }
+        });
+    }
 
     public static void install() {
         try {
@@ -41,6 +80,7 @@ public final class HudTheme {
         w.setBackground(PANEL);
         if (w instanceof RootPaneContainer) ((RootPaneContainer) w).getContentPane().setBackground(PANEL);
         style(w);
+        marcar(w);
         w.repaint();
     }
 
